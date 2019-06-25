@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+    <title>测试登陆</title>
+    <link rel="stylesheet" href="https://yun.duiba.com.cn/upload/pux6tq6wi4.css" />
+
+</head>
+  <body>
+    
+        <form id="autoform">
+           
+          <input type="hidden"   name="appKey"   id="appKey" value="46cHDo7yrQ9Ermd3Un7XC6tAskjA"/>
+          <br />
+           
+          <input type="hidden"   id="appSecret" name="appSecret" value="2Xkm1KH8vwJ1HdLuMaQ3znZpATNs" />
+          <br />
+          <label for="para3">Uid</label>
+          <input type="text"  id="uid" name="uid" value="uid"  placeholder="请输入Uid" />
+          <br />
+          <label for="para4">Credits</label>
+          <input type="text"  id="credits" name="credits" value="100" placeholder="请输入Credits" />
+          <br />
+          
+ 
+        <input name="button" type="button"      onClick="dovalue()" value="进入"/>&nbsp;
+			
+          
+        </form>
+       
+  </body>
+  
+    <script type="text/javascript" src="./mymd5.js"></script>
+ 	<script>
+	 function dovalue()
+	 {
+	 
+	   
+	    var timestamp1 = new Date().getTime()+ 5000;
+ 
+	 
+	    var msg = appKey.value + appSecret.value + credits.value + timestamp1 + uid.value;
+	    var hash1 = md5(msg); 
+	     
+	    
+	    var URL1="https://activity.m.duiba.com.cn/autoLogin/autologin?" +
+	             "&timestamp="+timestamp1 +
+	             "&sign="  + hash1 +
+	             "&uid="+uid.value+"&appKey="+appKey.value +
+	             "&credits="+credits.value ;
+	                         
+	    
+	    
+	    window.open(URL1);
+	  
+	}
+	 
+</script>
+</html>
